@@ -1,10 +1,10 @@
 import React from 'react';
-import { useCart } from '@/context/CartContext';
+import { useCart } from '../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ShoppingBag, Truck, Info } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import CartItem from '@/components/cart/CartItem';
+import { Button } from '../components/ui/button';
+import { Separator } from '../components/ui/separator';
+import CartItem from '../components/cart/CartItem';
 import { motion } from 'framer-motion';
 
 export default function Cart() {

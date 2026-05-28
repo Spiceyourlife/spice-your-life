@@ -1,9 +1,9 @@
 import React from 'react';
-import { base44 } from '@/api/base44Client';
+import { base44 } from '../api/base44Client';
 import { useQuery } from '@tanstack/react-query';
-import { useAuth } from '@/lib/AuthContext';
-import { Badge } from '@/components/ui/badge';
-import { Skeleton } from '@/components/ui/skeleton';
+import { useAuth } from '../lib/AuthContext';
+import { Badge } from '../components/ui/badge';
+import { Skeleton } from '../components/ui/skeleton';
 import { Package, Clock, Truck, CheckCircle, XCircle, ChefHat } from 'lucide-react';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';

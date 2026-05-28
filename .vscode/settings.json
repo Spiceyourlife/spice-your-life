@@ -1,0 +1,25 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^node -e \"console\\.log\\(require\\('\\./tailwind\\.temp\\.config\\.cjs'\\)\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "npx tailwindcss": true,
+        "/^node -e \"const fs=require\\('fs'\\); const path=require\\('path'\\); const abs=path\\.resolve\\('src/pages/Cart\\.jsx'\\); fs\\.writeFileSync\\('tailwind\\.temp3\\.config\\.cjs', `module\\.exports = \\{ content: \\['\\$\\{abs\\}'\\], theme: \\{ extend: \\{\\} \\}, plugins: \\[\\] \\}`\\)\"; npx tailwindcss -i \\./src/index\\.css -o \\./temp-tailwind16\\.css --config \\./tailwind\\.temp3\\.config\\.cjs; Select-String -Path \\.\\\\temp-tailwind16\\.css -Pattern \"text-center\" -SimpleMatch \\| Select-Object -First 20$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^node -e \"const fs=require\\('fs'\\); const path=require\\('path'\\); const abs=path\\.resolve\\('src/pages/Cart\\.jsx'\\); fs\\.writeFileSync\\('tailwind\\.temp3\\.config\\.cjs', 'module\\.exports = \\{ content: \\[\\\\\"' \\+ abs \\+ '\\\\\"\\], theme: \\{ extend: \\{\\} \\}, plugins: \\[\\] \\}'\\)\"; npx tailwindcss -i \\./src/index\\.css -o \\./temp-tailwind16\\.css --config \\./tailwind\\.temp3\\.config\\.cjs; Select-String -Path \\.\\\\temp-tailwind16\\.css -Pattern \"text-center\" -SimpleMatch \\| Select-Object -First 20$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^node -e \"const fs=require\\('fs'\\); const p=require\\('path'\\)\\.resolve\\('src/pages/Cart\\.jsx'\\)\\.replace\\(/\\\\\\\\/g, '/'\\); fs\\.writeFileSync\\('tailwind\\.temp3\\.config\\.cjs', 'module\\.exports = \\{ content: \\[\\\\''\\+p\\+'\\\\'\\], theme: \\{ extend: \\{\\} \\}, plugins: \\[\\] \\}'\\)\"; npx tailwindcss -i \\./src/index\\.css -o \\./temp-tailwind16\\.css --config \\./tailwind\\.temp3\\.config\\.cjs; Select-String -Path \\.\\\\temp-tailwind16\\.css -Pattern \"text-center\" -SimpleMatch \\| Select-Object -First 20$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^node --input-type=module -e \"import config from '\\./postcss\\.config\\.js'; console\\.log\\(config\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

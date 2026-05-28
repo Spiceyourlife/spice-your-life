@@ -1,7 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+import {
+  HashRouter,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+
 import { AuthProvider, useAuth } from './lib/AuthContext';
+
 import ProtectedRoute from './components/ProtectedRoute';
+
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
@@ -12,33 +21,87 @@ function AppShell() {
   const { user, logout } = useAuth();
 
   return (
-    <div style={{ padding: '16px', fontFamily: 'Inter, sans-serif' }}>
-      <header style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '24px' }}>
-        <nav style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+    <div
+      style={{
+        padding: '16px',
+        fontFamily: 'Inter, sans-serif',
+        minHeight: '100vh',
+        background: '#f9f7f2',
+        color: '#121212'
+      }}
+    >
+      <header
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '24px'
+        }}
+      >
+        <nav
+          style={{
+            display: 'flex',
+            gap: '16px',
+            flexWrap: 'wrap'
+          }}
+        >
           <Link to="/">Carrinho</Link>
-          <Link to="/checkout">Checkout</Link>
-          <Link to="/orders">Encomendas</Link>
-          <Link to="/admin/hotel-clients">Clientes Hotelaria</Link>
+
+          <Link to="/checkout">
+            Checkout
+          </Link>
+
+          <Link to="/orders">
+            Encomendas
+          </Link>
+
+          <Link to="/admin/hotel-clients">
+            Clientes Hotelaria
+          </Link>
         </nav>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: '12px', alignItems: 'center' }}>
+
+        <div>
           {user ? (
-            <>
-              <span>{user.name} ({user.role})</span>
-              <button onClick={logout} style={{ padding: '8px 14px', cursor: 'pointer' }}>Sair</button>
-            </>
+            <button onClick={logout}>
+              Sair
+            </button>
           ) : (
-            <Link to="/login">Entrar</Link>
+            <Link to="/login">
+              Entrar
+            </Link>
           )}
         </div>
       </header>
+
       <Routes>
-        <Route path="/" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/login" element={<Login />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/admin/hotel-clients" element={<AdminHotelClients />} />
-        </Route>
+        <Route
+          path="/"
+          element={<Cart />}
+        />
+
+        <Route
+          path="/checkout"
+          element={<Checkout />}
+        />
+
+        <Route
+          path="/orders"
+          element={<Orders />}
+        />
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        <Route
+          path="/admin/hotel-clients"
+          element={
+            <ProtectedRoute>
+              <AdminHotelClients />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
@@ -47,9 +110,9 @@ function AppShell() {
 export default function App() {
   return (
     <AuthProvider>
-        <BrowserRouter basename="/spice-your-life/">
-          <AppShell />
-        </BrowserRouter>
+      <HashRouter>
+        <AppShell />
+      </HashRouter>
     </AuthProvider>
   );
 }
